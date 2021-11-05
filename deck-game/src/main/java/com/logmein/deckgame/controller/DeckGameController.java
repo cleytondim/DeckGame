@@ -1,15 +1,18 @@
 package com.logmein.deckgame.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-//@RequestMapping(value = "/deck-game")
+@RestController
+@RequestMapping(value = "/game-service")
 public class DeckGameController {
 
-	@GetMapping("/game")
-	public String runGame() {
-	return "game.xhtml";
+	/*
+	@GetMapping("/create-game")
+	public ResponseEntity<Game> createGame() {
+		
+		return "game.xhtml";
 	}
-
+*/
 }

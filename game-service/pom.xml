@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.logmein</groupId>
-	<artifactId>deck-service</artifactId>
+	<artifactId>game-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>deck-service</name>
-	<description>Deck Service of the DeckGame</description>
+	<name>game-service</name>
+	<description>Game Service of the DeckGame</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

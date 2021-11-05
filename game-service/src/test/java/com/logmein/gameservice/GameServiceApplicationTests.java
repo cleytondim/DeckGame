@@ -1,10 +1,10 @@
-package com.logmein.deckservice;
+package com.logmein.gameservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DeckServiceApplicationTests {
+class GameServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
