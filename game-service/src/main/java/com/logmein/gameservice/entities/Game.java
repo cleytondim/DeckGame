@@ -6,7 +6,7 @@ import java.util.List;
 public class Game {
 
 	private GameDeck gameDeck;
-	private List<Integer> idPlayers;
+	private List<Player> players;
 	private List<Deck> decks;
 	private Integer round;
 	private Integer idGame;
@@ -19,7 +19,7 @@ public class Game {
 		decks = new ArrayList<>();
 		round = 0;
 		gameDeck = new GameDeck();
-		idPlayers = new ArrayList<>();
+		players = new ArrayList<>();
 		this.idGame = idGame;
 	}
 	
@@ -35,20 +35,20 @@ public class Game {
 		return gameDeck;
 	}
 
-	public List<Integer> getIdPlayers() {
-		return idPlayers;
+	public List<Player> getPlayers() {
+		return players;
 	}
 	
 	public List<Deck> getDecks() {
 		return decks;
 	}
 
-	public void addPlayer(Integer id) {
-		idPlayers.add(id);
+	public void addPlayer(Player player) {
+		players.add(player);
 	}
 	
-	public void removePlayer(Integer id) {
-		idPlayers.remove(id);
+	public void removePlayer(Player player) {
+		players.remove(player);
 	}
 
 	public Integer getRound() {
@@ -80,7 +80,29 @@ public class Game {
 		throw new Exception("Deck not found");
 	}
 
+	public void checkDeckOnGame(Integer id) throws Exception {
+		for (Deck deck : decks) {
+			if(deck.getId().equals(id))
+				return;
+		}
+		throw new Exception("Deck already on the game");
+	}
 	
+	public void checkDeckOnGameDeck(Integer id) throws Exception {
+		for (Deck deck : decks) {
+			if(deck.getId().equals(id)&&deck.getCards().isEmpty())
+				throw new Exception("Deck already on the game deck");
+		}
+	}
+	
+	public Integer findLastPlayerId() {
+		int biggerId = 0;
+		for (Player p : players) {
+			if(p.getId()>=biggerId)
+				biggerId=p.getId();
+		}
+		return biggerId;
+	}
 	
 	
 }

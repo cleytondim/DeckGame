@@ -32,7 +32,6 @@ public class GameDeck {
 	public Card dealCard() throws Exception {
 		 if(!cards.isEmpty())
 		 {
-			 shuffleGameDeck();
 			 Card cardToDeal = cards.get(0);
 			 cards.remove(0);
 			 return cardToDeal;
@@ -53,39 +52,21 @@ public class GameDeck {
 		    }
 	 }
 	 
-	 public Map<String, Integer> getCountsPerSuit(){
+	 
+	 public List<Card> getCards(){
+		 return cards;
+	 }
+	 
+	 public Map<String, Integer> countsPerSuit(){
 		 Map<String, Integer> counts = new LinkedHashMap<>();
 		 for(String suit : suits)
 			 counts.put(suit, getCountSuit(suit));
 		 return counts;
 	 }
 	 
-	/* public Map<String, Integer> getCounts(){
-		 Map<String, Integer> counts = new LinkedHashMap<>();
-		 for(String suit : suits)
-			 counts.put(suit, getCountSuit(suit));
-		 for(int i=13;i>=1;i--) {
-			 counts.put(String.valueOf(faces.get(i-1)), getCountFace(faces.get(i-1)));
-		 }
-		 return counts;
-	 }
-	 
-
-	 
-	 private int getCountFace(String face) {
-		 int count=0;
-		 for (Card card : cards) {
-			if(card.getFace().equals(face)) {
-				count++;
-			}
-		}
-		return count;
-	 }
-	 
-	 */
 	 
 	 
-	 public Map<String, Integer> getCounts(){
+	 public Map<String, Integer> counts(){
 		 Map<String, Integer> counts = new LinkedHashMap<>();
 		 for(String suit : suits)
 			 for(int i=13;i>=1;i--) {
